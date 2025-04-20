@@ -6,16 +6,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.DriverFactory;
 
 import java.time.Duration;
 
 public class BasePage {
-    protected WebDriver driver;
-    private WebDriverWait wait;
+    protected WebDriver driver = DriverFactory.getDriver();
+    private final WebDriverWait wait;
 
-    public BasePage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    public BasePage() {
+        this.wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
     }
 
     protected WebElement find(By locator) {

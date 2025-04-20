@@ -1,34 +1,29 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class MainPage extends BasePage {
 
-    public MainPage(WebDriver driver) {
-        super(driver);
-    }
-
     // navbar
-    private By divLogo = By.xpath("//div[@class='app_logo']");
-    private By btnCart = By.xpath("//a[@href='./cart.html']");
-    private By lblCartBadge = By.xpath("//span[@class='fa-layers-counter shopping_cart_badge']");
-    private By btnBurger = By.xpath("//div[@class='bm-burger-button']");
+    private final By divLogo = By.xpath("//div[@class='app_logo']");
+    private final By btnCart = By.xpath("//a[@href='./cart.html']");
+    private final By lblCartBadge = By.xpath("//span[@class='fa-layers-counter shopping_cart_badge']");
+    private final By btnBurger = By.xpath("//div[@class='bm-burger-button']");
     // sidebar
-    private By divSidebarMenu = By.xpath("//div[@class='bm-menu']");
-    private By lnkAllItems = By.xpath("//a[@id='inventory_sidebar_link']");
-    private By lnkAbout = By.xpath("//a[@id='about_sidebar_link']");
-    private By lnkLogout = By.xpath("//a[@id='logout_sidebar_link']");
-    private By btnClose = By.xpath("//button[normalize-space()='Close Menu']");
+    private final By divSidebarMenu = By.xpath("//div[@class='bm-menu']");
+    private final By lnkAllItems = By.xpath("//a[@id='inventory_sidebar_link']");
+    private final By lnkAbout = By.xpath("//a[@id='about_sidebar_link']");
+    private final By lnkLogout = By.xpath("//a[@id='logout_sidebar_link']");
+    private final By btnClose = By.xpath("//button[normalize-space()='Close Menu']");
 
     //Footer
-    private By Footer = By.xpath("//footer[@class='footer']");
-    private By divFooter = By.xpath("//div[@class='footer_copy']");
+    private final By footer = By.xpath("//footer[@class='footer']");
+    private final By divFooter = By.xpath("//div[@class='footer_copy']");
 
     public void verifyPageLoaded() {
         verifyElementsAreVisible(divLogo, btnCart, btnBurger);
         scrollDownByPixel(driver, 250);
-        verifyElementsAreVisible(Footer, divFooter);
+        verifyElementsAreVisible(footer, divFooter);
     }
 
     public void clickButtonCart() {

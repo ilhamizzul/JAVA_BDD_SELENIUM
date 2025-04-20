@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 public class LoginPage extends BasePage {
@@ -13,11 +12,6 @@ public class LoginPage extends BasePage {
     private final By divLogo = By.xpath("//div[@class='login_logo']");
     private final By imgMascot = By.xpath("//img[@class='bot_column']");
     private final By lblError = By.xpath("//h3[@data-test='error']");
-
-    // Constructor
-    public LoginPage(WebDriver driver) {
-        super(driver);
-    }
 
     // Actions
     public void navigateToLoginPage() {

@@ -1,38 +1,34 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class ProductPage extends MainPage {
 
-    public ProductPage(WebDriver driver) {
-        super(driver);
-    }
 
     private final By btnBack = By.xpath("//button[@class='inventory_details_back_button']");
     private final By lblProductName = By.xpath("//div[@class='inventory_details_name']");
     private final By lblProductPrice = By.xpath("//div[@class='inventory_details_price']");
-    private final By btnAddtoCart = By.xpath("//div[@class='inventory_details_desc_container']//button");
+    private final By btnAddToCart = By.xpath("//div[@class='inventory_details_desc_container']//button");
 
     @Override
     public void verifyPageLoaded() {
-        verifyElementsAreVisible(btnBack, lblProductName, lblProductPrice, btnAddtoCart);
-        verifyButtonAddtoCartisToggled(true);
+        verifyElementsAreVisible(btnBack, lblProductName, lblProductPrice, btnAddToCart);
+        verifyButtonAddToCartIsToggled(true);
     }
 
     public void clickButtonBack() {
         click(btnBack);
     }
 
-    public void clickButtonAddtoCart() {
-        click(btnAddtoCart);
+    public void clickButtonAddToCart() {
+        click(btnAddToCart);
     }
 
-    public void verifyButtonAddtoCartisToggled(boolean isToggledActive) {
+    public void verifyButtonAddToCartIsToggled(boolean isToggledActive) {
         if (isToggledActive) {
-            assert find(btnAddtoCart).getText().equals("REMOVE");
+            assert find(btnAddToCart).getText().equals("REMOVE");
         } else {
-            assert find(btnAddtoCart).getText().equals("ADD TO CART");
+            assert find(btnAddToCart).getText().equals("ADD TO CART");
         }
     }
 

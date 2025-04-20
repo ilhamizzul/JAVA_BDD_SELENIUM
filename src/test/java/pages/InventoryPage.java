@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -12,10 +11,6 @@ import java.util.Random;
 import static utils.Dictionary.*;
 
 public class InventoryPage extends MainPage {
-    public InventoryPage(WebDriver driver) {
-        super(driver);
-        this.addedItemIndex = new ArrayList<>();
-    }
 
     private final By cardItemsLocator = By.xpath("//div[@class='inventory_item']");
     private final By drpSortBy = By.xpath("//select[@class='product_sort_container']");
@@ -23,7 +18,7 @@ public class InventoryPage extends MainPage {
     private final String xpathProductPrice = "(//div[@class='inventory_item_price'])[position()=%d]";
     private final String xpathItemButton = "(//button[contains(@class, 'btn_inventory')])[%d]";
 
-    private final List<Integer> addedItemIndex;
+    private final List<Integer> addedItemIndex = new ArrayList<>();
 
 
     private int randomItem(int upperIndex) {
