@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class WebDriverConfig {
+
     public static WebDriver initChromeDriver() {
         WebDriverManager.chromedriver().setup();
 
@@ -28,7 +29,6 @@ public class WebDriverConfig {
 
         WebDriver driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
         return driver;
     }
 
