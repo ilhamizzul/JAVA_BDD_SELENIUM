@@ -7,7 +7,7 @@ public class MainPage extends BasePage {
     // navbar
     private final By divLogo = By.xpath("//div[@class='app_logo']");
     private final By btnCart = By.xpath("//a[@href='./cart.html']");
-    private final By lblCartBadge = By.xpath("//span[@class='fa-layers-counter shopping_cart_badge']");
+    protected final By lblCartBadge = By.xpath("//span[@class='fa-layers-counter shopping_cart_badge']");
     private final By btnBurger = By.xpath("//div[@class='bm-burger-button']");
     // sidebar
     private final By divSidebarMenu = By.xpath("//div[@class='bm-menu']");
@@ -24,6 +24,10 @@ public class MainPage extends BasePage {
         verifyElementsAreVisible(divLogo, btnCart, btnBurger);
         scrollDownByPixel(driver, 250);
         verifyElementsAreVisible(footer, divFooter);
+    }
+
+    public void verifyProductAddedToCart() {
+        verifyElementsAreVisible(lblCartBadge);
     }
 
     public void clickButtonCart() {

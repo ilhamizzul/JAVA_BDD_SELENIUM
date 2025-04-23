@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,13 @@ public class InventoryPage extends MainPage {
 
     private final List<Integer> addedItemIndex = new ArrayList<>();
 
+    @Override
+    public void verifyProductAddedToCart() {
+        super.verifyProductAddedToCart();
+        String countProductCart =  GetText(lblCartBadge);
+        String actualCountProductCart = String.valueOf(addedItemIndex.size());
+        Assert.assertEquals(actualCountProductCart, countProductCart);
+    }
 
     private int randomItem(int upperIndex) {
         Random random = new Random();
