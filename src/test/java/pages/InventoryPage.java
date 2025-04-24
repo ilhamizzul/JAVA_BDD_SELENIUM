@@ -131,7 +131,8 @@ public class InventoryPage extends MainPage {
 
     public void clickButtonSortBy(String sortBy) {
         Select selectSortBy = new Select(find(drpSortBy));
-        selectSortBy.selectByValue(sortBy);
+        click(drpSortBy);
+        selectSortBy.selectByVisibleText(sortBy);
     }
 
 }

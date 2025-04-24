@@ -14,7 +14,7 @@ public class InventorySteps {
     int index;
 
     @Given("user already logged in successfully")
-    public void userisLoggedIn() {
+    public void UserIsLoggedIn() {
         loginPage.navigateToLoginPage();
         loginPage.login("standard_user", "secret_sauce");
     }
@@ -54,5 +54,15 @@ public class InventorySteps {
     @And("\"REMOVE\" button is changed to \"ADD TO CART\"")
     public void verifyButtonItemInRemoveState() {
         inventoryPage.verifyIsButtonItemInRemoveState(index);
+    }
+
+    @When("I choose the {string} sorting option")
+    public void ChooseTheSortingOption(String selectedSort) {
+        inventoryPage.clickButtonSortBy(selectedSort);
+    }
+
+    @Then("I should see the items sorted in {string} order by {string}")
+    public void ShouldSeeTheItemsSortedInOrderBy(String sortBy, String orderBy) {
+        inventoryPage.verifyItemsAreSorted(sortBy, orderBy);
     }
 }

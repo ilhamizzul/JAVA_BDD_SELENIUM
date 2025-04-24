@@ -21,3 +21,16 @@ Feature: TS02 Inventory
     When user remove product from cart
     Then product is removed from cart
     And "REMOVE" button is changed to "ADD TO CART"
+
+  Scenario Outline: Sorting items by different criteria
+    Given user already logged in successfully
+    When I choose the "<selectSort>" sorting option
+    Then I should see the items sorted in "<sortBy>" order by "<orderBy>"
+
+    Examples:
+      | selectSort          | sortBy         | orderBy       |
+      | Name (A to Z)       | ASC            | NAME          |
+      | Name (Z to A)       | DESC           | NAME          |
+      | Price (low to high) | ASC            | PRICE         |
+      | Price (high to low) | DESC           | PRICE         |
+
