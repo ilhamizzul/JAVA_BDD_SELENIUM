@@ -11,6 +11,7 @@ public class LoginSteps {
     @Given("the user is on the login page")
     public void navigateToLoginPage() {
         loginPage.navigateToLoginPage();
+        loginPage.verifyPageLoaded();
     }
 
     @When("the user enters valid username {string} and password {string}")

@@ -26,7 +26,10 @@ public class LoginPage extends BasePage {
     public void verifyErrorMessage(String message){
         find(lblError).isDisplayed();
         String errorMessage = find(lblError).getText();
-        Assert.assertTrue(errorMessage.contains(message));
+        Assert.assertTrue(
+                errorMessage.contains(message),
+                String.format("Expected error message to contain: '%s' but found: '%s'", message, errorMessage)
+        );
     }
 
     public void fillUsername(String keyword) {
