@@ -26,7 +26,10 @@ public class InventoryPage extends MainPage {
         super.verifyProductAddedToCart();
         String countProductCart =  GetText(lblCartBadge);
         String actualCountProductCart = String.valueOf(addedItemIndex.size());
-        Assert.assertEquals(actualCountProductCart, countProductCart);
+        Assert.assertEquals(
+                actualCountProductCart, countProductCart,
+                "Expected total product that added to card is : " + countProductCart + " product. But found : " + actualCountProductCart + " product."
+        );
     }
 
     private int randomItem(int upperIndex) {
