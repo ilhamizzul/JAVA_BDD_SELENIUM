@@ -41,21 +41,28 @@ jobs:
     - name: Execute Test
       run: ./gradlew clean test
 
-    # Step 6: Generate Allure report
-    - name: Generate Allure Report
-      run: ./gradlew allureReport
-
-    # Step 7: Upload raw allure-results (optional for debugging)
-    - name: Upload Allure Results
-      uses: actions/upload-artifact@v4
+    - name: Archive test results
+      uses: actions/upload-artifact@v4.3.0
+      if: always() #always() # success() , failure(), canceled()
       with:
-        name: allure-results
-        path: build/allure-results
+        name: cucumber reports
+        path: target/index.html
 
-    # Step 8: Upload generated Allure HTML report (for downloading/viewing)
-    - name: Upload Allure Report
-      uses: actions/upload-artifact@v4
-      with:
-        name: allure-report
-        path: build/reports/allure-report
+#    # Step 6: Generate Allure report
+#    - name: Generate Allure Report
+#      run: ./gradlew allureReport
+#
+#    # Step 7: Upload raw allure-results (optional for debugging)
+#    - name: Upload Allure Results
+#      uses: actions/upload-artifact@v4
+#      with:
+#        name: allure-results
+#        path: build/allure-results
+#
+#    # Step 8: Upload generated Allure HTML report (for downloading/viewing)
+#    - name: Upload Allure Report
+#      uses: actions/upload-artifact@v4
+#      with:
+#        name: allure-report
+#        path: build/reports/allure-report
       
